@@ -8,4 +8,8 @@ const DashboardScreenView = () => (
   </View>
 );
 
+DashboardScreenView.navigationOptions = {
+  title: 'Dashboard',
+};
+
 export default DashboardScreenView;

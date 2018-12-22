@@ -8,4 +8,8 @@ const HomeScreenView = () => (
   </View>
 );
 
+HomeScreenView.navigationOptions = {
+  title: 'Home',
+};
+
 export default HomeScreenView;

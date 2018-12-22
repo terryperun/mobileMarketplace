@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { compose, withState, withProps } from 'recompose';
+import { compose } from 'recompose';
 import DashboardScreenView from './DashboardScreenView';
 
 const enhance = compose(connect());

@@ -8,4 +8,8 @@ const ProfileScreenView = () => (
   </View>
 );
 
+ProfileScreenView.navigationOptions = {
+  title: 'Profile',
+};
+
 export default ProfileScreenView;
