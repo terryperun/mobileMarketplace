@@ -6,13 +6,15 @@ import s from './styles';
 const FormButton = ({ onPress, iconName, text }) => (
   <TouchableOpacity onPress={onPress}>
     <View style={s.container}>
-      <Ionicons
-        style={s.iconCart}
-        name={iconName}
-        size={32}
-        color="black"
-      />
-      <Text style={s.text}>{text}</Text>
+      <View style={s.leftContainer}>
+        <Ionicons
+          style={s.iconCart}
+          name={iconName}
+          size={32}
+          color="black"
+        />
+        <Text style={s.text}>{text}</Text>
+      </View>
       <Entypo
         style={s.chevronRight}
         name="chevron-right"

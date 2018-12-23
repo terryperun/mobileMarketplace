@@ -7,7 +7,6 @@ import FormButton from '../../components/FormButton/FormButton';
 
 const DashboardScreenView = ({ goToCart }) => (
   <View>
-    <Text>Dashborad</Text>
     <FormButton onPress={goToCart} text="Cart" iconName="ios-cart" />
   </View>
 );
