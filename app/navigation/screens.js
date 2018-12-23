@@ -4,6 +4,7 @@ export default {
 
   DashboardTab: 'DashboardTab',
   Dashboard: 'Dashboard',
+  Cart: 'Cart',
 
   ProfileTab: 'ProfileTab',
   Profile: 'Profile',
