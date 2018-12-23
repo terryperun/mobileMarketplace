@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-// import s from './styles';
+import { Ionicons } from '@expo/vector-icons';
+// import IconOnPress from '../../components/IconOnPress/IconOnPress';
+import s from './styles';
 
 const HomeScreenView = () => (
   <View>
@@ -8,8 +10,24 @@ const HomeScreenView = () => (
   </View>
 );
 
-HomeScreenView.navigationOptions = {
+HomeScreenView.navigationOptions = ({ navigation }) => ({
   title: 'Home',
-};
+  headerRight: (
+    <Ionicons
+      style={s.containerCartBtn}
+      name="ios-cart"
+      size={32}
+      color="black"
+      onPress={() => navigation.navigate('Cart')}
+    />
+  ),
+  // headerRight: (
+  //   <IconOnPress
+  //     style={s.containerCartBtn}
+  //     onPress={goToCart}
+  //     iconName="ios-cart"
+  //   />
+  // ),
+});
 
 export default HomeScreenView;
