@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-// import IconOnPress from '../../components/IconOnPress/IconOnPress';
+import { View, Text, TextInput } from 'react-native';
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import SearchInput from '../../components/SearchInput/SearchInput';
 import s from './styles';
 
 const HomeScreenView = () => (
@@ -11,7 +11,7 @@ const HomeScreenView = () => (
 );
 
 HomeScreenView.navigationOptions = ({ navigation }) => ({
-  title: 'Home',
+  // headerleft: 'Home',
   headerRight: (
     <Ionicons
       style={s.containerCartBtn}
@@ -21,13 +21,12 @@ HomeScreenView.navigationOptions = ({ navigation }) => ({
       onPress={() => navigation.navigate('Cart')}
     />
   ),
-  // headerRight: (
-  //   <IconOnPress
-  //     style={s.containerCartBtn}
-  //     onPress={goToCart}
-  //     iconName="ios-cart"
-  //   />
-  // ),
+  headerTitle: () => (
+    <View style={s.header}>
+      <SearchInput style={s.headerSearch} />
+    </View>
+  ),
+  headerLeft: null,
 });
 
 export default HomeScreenView;

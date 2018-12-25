@@ -1,15 +1,7 @@
 import { connect } from 'react-redux';
 import { compose, withHandlers } from 'recompose';
 import HomeScreenView from './HomeScreenView';
-// import screens from '../../navigation/screens';
 
-const enhance = compose(
-  connect(),
-  // withHandlers({
-  //   goToCart: (props) => () => {
-  //     props.navigation.navigate(screens.Cart);
-  //   },
-  // }),
-);
+const enhance = compose(connect());
 
 export default enhance(HomeScreenView);
