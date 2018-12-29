@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 6,
-    height: 42,
+    height: 42, // 42,
   },
   searchIcon: {
     padding: 16,

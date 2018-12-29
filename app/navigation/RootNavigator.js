@@ -2,7 +2,7 @@ import { createStackNavigator } from 'react-navigation';
 import screens from './screens';
 
 import AppNavigator from './AppNavigator';
-// import AddProductNavigator from './AddProductNavigator';
+import AddProductNavigator from './AddProductNavigator';
 
 const routes = {
   [screens.App]: AppNavigator, // your tab navigator

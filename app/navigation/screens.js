@@ -4,12 +4,15 @@ export default {
   HomeTab: 'HomeTab',
   Home: 'Home',
   //----------------
+
   DashboardTab: 'DashboardTab',
   Dashboard: 'Dashboard',
   Cart: 'Cart',
 
   BrowseTab: 'BrowseTab',
   Browse: 'Browse',
+
+  AddProduct: 'AddProduct',
 
   FavoritesTab: 'FavoritesTab',
   Favorites: 'Favorites',

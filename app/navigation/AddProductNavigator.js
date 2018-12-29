@@ -1,16 +1,11 @@
-// import { createBottomTabNavigator } from 'react-navigation';
-// import screens from './screens';
-// import HomeNavigator from './HomeNavigator';
-// import DashboardNavigator from './DashboardNavigator';
-// import ProfileNavigator from './ProfileNavigator';
+import { createBottomTabNavigator } from 'react-navigation';
+import screens from './screens';
+import SellScreen from '../screens/Sell/SellScreenContainer';
 
-// const routes = {
-//   [screens.HomeTab]: HomeNavigator,
-//   [screens.DashboardTab]: DashboardNavigator,
-//   [screens.ProfileTab]: ProfileNavigator,
-// };
+const routes = {
+  [screens.Sell]: SellScreen,
+};
 
-// const AppNavigator = createBottomTabNavigator(routes);
+const AppNavigator = createBottomTabNavigator(routes);
 
-// export default AppNavigator;
-// //----
+export default AppNavigator;

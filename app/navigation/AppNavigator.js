@@ -1,17 +1,22 @@
 import React from 'react';
-import { createBottomTabNavigator } from 'react-navigation';
-// import Icon from '@expo/vector-icons/FontAwesome';
+import {
+  createBottomTabNavigator,
+  navigation,
+} from 'react-navigation';
+import { View } from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 
 import screens from './screens';
-import HomeNavigator from './HomeNavigator';
+// import HomeNavigator from './HomeNavigator';
 // import DashboardNavigator from './DashboardNavigator';
 import ProfileNavigator from './ProfileNavigator';
 
 import BrowseNavigator from './BrowseNavigator';
 import FavoritesNavigator from './FavoritesNavigator';
-import SellNavigator from './SellNavigator';
+import AddProductNavigator from './AddProductNavigator';
 import InboxNavigator from './InboxNavigator';
+
+// import { colors } from '../styles';
 
 const routes = {
   // [screens.HomeTab]: HomeNavigator,
@@ -25,6 +30,7 @@ const routes = {
       ),
     }),
   },
+
   [screens.FavoritesTab]: {
     screen: FavoritesNavigator,
     navigationOptions: ({ navigation }) => ({
@@ -36,13 +42,37 @@ const routes = {
   },
 
   [screens.SellTab]: {
-    screen: SellNavigator,
+    screen: AddProductNavigator,
     navigationOptions: ({ navigation }) => ({
       tabBarLabel: 'Sell',
       tabBarIcon: ({ tintColor }) => (
-        <FontAwesome name="camera" size={24} color={tintColor} />
+        <View
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 80,
+            height: 80,
+            borderRadius: 80 / 2,
+            backgroundColor: '#FFFFFF',
+            // backgroundColor: colors.white,
+          }}
+        >
+          {/* <View
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 70,
+              height: 70,
+              borderRadius: 70 / 2,
+              backgroundColor: '#44B2F1',
+            }}
+          > */}
+          <FontAwesome name="camera" size={24} color={tintColor} />
+        </View>
+        // </View>
       ),
     }),
+    tabBarOnPress: () => navigation.navigate('ModalScreen'),
   },
 
   [screens.InboxTab]: {
