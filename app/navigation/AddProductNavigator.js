@@ -1,11 +1,13 @@
-import { createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import screens from './screens';
-import SellScreen from '../screens/Sell/SellScreenContainer';
+import AddProductScreen from '../screens/AddProduct/AddProductScreenContainer';
+// import SellScreen from '../screens/Sell/SellScreenContainer';
 
 const routes = {
-  [screens.Sell]: SellScreen,
+  [screens.AddProduct]: AddProductScreen,
+  // [screens.Sell]: SellScreen,
 };
 
-const AppNavigator = createBottomTabNavigator(routes);
+const AppNavigator = createStackNavigator(routes);
 
 export default AppNavigator;

@@ -42,7 +42,8 @@ const routes = {
   },
 
   [screens.SellTab]: {
-    screen: AddProductNavigator,
+    // screen: AddProductNavigator,
+    screen: () => null,
     navigationOptions: ({ navigation }) => ({
       tabBarLabel: 'Sell',
       tabBarIcon: ({ tintColor }) => (
@@ -71,14 +72,14 @@ const routes = {
         </View>
         // </View>
       ),
+      tabBarOnPress: () => navigation.navigate('AddProduct'),
     }),
-    tabBarOnPress: () => navigation.navigate('ModalScreen'),
   },
 
   [screens.InboxTab]: {
     screen: InboxNavigator,
     navigationOptions: ({ navigation }) => ({
-      tabBarLabel: 'nbox',
+      tabBarLabel: 'Inbox',
       tabBarIcon: ({ tintColor }) => (
         <FontAwesome name="inbox" size={24} color={tintColor} />
       ),

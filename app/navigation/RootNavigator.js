@@ -6,7 +6,7 @@ import AddProductNavigator from './AddProductNavigator';
 
 const routes = {
   [screens.App]: AppNavigator, // your tab navigator
-  // [screens.AddProduct]: AddProductNavigator,
+  [screens.AddProduct]: AddProductNavigator,
 };
 
 const RootNavigator = createStackNavigator(routes, {

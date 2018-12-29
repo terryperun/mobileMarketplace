@@ -10,7 +10,9 @@ const AddProductScreenView = () => (
 );
 
 AddProductScreenView.navigationOptions = {
-  title: 'Cart',
+  // title: 'AddProd',
+  header: null,
+  // headerVisable: false,
 };
 
 export default AddProductScreenView;
