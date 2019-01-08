@@ -4,86 +4,71 @@ import {
   navigation,
 } from 'react-navigation';
 import { View } from 'react-native';
-// import Icon from '@expo/vector-icons/FontAwesome';
 import {
-  EvilIcons,
   MaterialCommunityIcons,
   Ionicons,
-  MaterialIcons,
-  FontAwesome,
+  EvilIcons,
 } from '@expo/vector-icons';
+import { Svg } from 'expo';
 
 import screens from './screens';
-// import HomeNavigator from './HomeNavigator';
-// import DashboardNavigator from './DashboardNavigator';
 import ProfileNavigator from './ProfileNavigator';
-
 import BrowseNavigator from './BrowseNavigator';
 import FavoritesNavigator from './FavoritesNavigator';
-import AddProductNavigator from './AddProductNavigator';
 import InboxNavigator from './InboxNavigator';
 
 import { colors } from '../styles';
+import s from './styles';
 
 const routes = {
-  // [screens.HomeTab]: HomeNavigator,
-  // [screens.DashboardTab]: DashboardNavigator,
   [screens.BrowseTab]: {
     screen: BrowseNavigator,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: () => ({
       tabBarLabel: 'Browse',
-      tabBarIcon: ({ focused, tintColor }) =>
-        (focused ? (
-          <FontAwesome name="search" size={24} color={tintColor} />
-        ) : (
-          <Ionicons name="ios-search" size={24} color={tintColor} />
-        )),
+      tabBarIcon: ({ focused, tintColor }) => (
+        <View style={s.styleTabs}>
+          <Ionicons
+            name={focused ? 'md-search' : 'ios-search'}
+            size={24}
+            color={tintColor}
+          />
+        </View>
+      ),
     }),
   },
 
   [screens.FavoritesTab]: {
     screen: FavoritesNavigator,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: () => ({
       tabBarLabel: 'Saved',
-      tabBarIcon: ({ focused, tintColor }) =>
-        (focused ? (
+      tabBarIcon: ({ focused, tintColor }) => (
+        <View style={s.styleTabs}>
           <MaterialCommunityIcons
-            name="bookmark"
+            name={focused ? 'bookmark' : 'bookmark-outline'}
             size={24}
             color={tintColor}
           />
-        ) : (
-          <MaterialCommunityIcons
-            name="bookmark-outline"
-            size={24}
-            color={tintColor}
-          />
-        )),
+        </View>
+      ),
     }),
   },
 
   [screens.SellTab]: {
     screen: () => null,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: () => ({
       tabBarLabel: () => null,
-      tabBarIcon: ({ tintColor }) => (
-        <View
-          style={{
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: 60,
-            height: 60,
-            borderRadius: 60 / 2,
-            backgroundColor: '#2C3E50',
-            position: 'absolute',
-            // zIndex: 1,
-            bottom: 18,
-            // left: 0,
-            // right: 0,
-          }}
-        >
-          {/* <Icon name="camera" size={24} color={tintColor} /> */}
-          <EvilIcons name="camera" size={39} color={colors.white} />
+      tabBarIcon: () => (
+        <View style={s.fabContainer}>
+          <Svg width="84" height="52" fill="none" version="1">
+            <Svg.Path
+              fill={colors.icon}
+              fillRule="evenodd"
+              d="M0 0h84v52H0V0zm42 36c19 0 35-14 36-33 0-2 1-3 3-3H3c2 0 3 1 3 3 0 19 16 33 36 33z"
+            />
+          </Svg>
+          <View style={s.button}>
+            <EvilIcons name="camera" size={39} color={colors.white} />
+          </View>
         </View>
       ),
       tabBarOnPress: () => navigation.navigate('AddProduct'),
@@ -92,43 +77,33 @@ const routes = {
 
   [screens.InboxTab]: {
     screen: InboxNavigator,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: () => ({
       tabBarLabel: 'Inbox',
-      tabBarIcon: ({ focused, tintColor }) =>
-        (focused ? (
+      tabBarIcon: ({ focused, tintColor }) => (
+        <View style={s.styleTabs}>
           <MaterialCommunityIcons
-            name="inbox-arrow-down"
+            name={focused ? 'inbox-arrow-down' : 'inbox'}
             size={24}
             color={tintColor}
           />
-        ) : (
-          <MaterialCommunityIcons
-            name="inbox"
-            size={24}
-            color={tintColor}
-          />
-        )),
+        </View>
+      ),
     }),
   },
 
   [screens.ProfileTab]: {
     screen: ProfileNavigator,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: () => ({
       tabBarLabel: 'Profile',
-      tabBarIcon: ({ focused, tintColor }) =>
-        (focused ? (
+      tabBarIcon: ({ focused, tintColor }) => (
+        <View style={s.styleTabs}>
           <MaterialCommunityIcons
-            name="account"
+            name={focused ? 'account' : 'account-outline'}
             size={24}
             color={tintColor}
           />
-        ) : (
-          <MaterialCommunityIcons
-            name="account-outline"
-            size={24}
-            color={tintColor}
-          />
-        )),
+        </View>
+      ),
     }),
   },
 };
@@ -137,7 +112,13 @@ const AppNavigator = createBottomTabNavigator(routes, {
   tabBarOptions: {
     activeTintColor: '#2E4052',
     style: {
-      height: 48,
+      position: 'absolute',
+      bottom: 0,
+      backgroundColor: 'transparent',
+      left: 0,
+      right: 0,
+      height: 52,
+      borderTopWidth: null,
     },
   },
 });
