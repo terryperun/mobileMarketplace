@@ -71,7 +71,8 @@ const routes = {
           </View>
         </View>
       ),
-      tabBarOnPress: () => navigation.navigate('AddProduct'),
+      tabBarOnPress: ({ navigation }) =>
+        navigation.navigate('AddProduct'),
     }),
   },
 
