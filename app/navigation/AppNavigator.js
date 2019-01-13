@@ -17,6 +17,7 @@ import BrowseNavigator from './BrowseNavigator';
 import FavoritesNavigator from './FavoritesNavigator';
 import InboxNavigator from './InboxNavigator';
 
+import Icon from '../components/Icon/Icon';
 import { colors } from '../styles';
 import s from './styles';
 
@@ -82,6 +83,7 @@ const routes = {
       tabBarLabel: 'Inbox',
       tabBarIcon: ({ focused, tintColor }) => (
         <View style={s.styleTabs}>
+          {/* <Icon iconName="inbox"  /> */}
           <MaterialCommunityIcons
             name={focused ? 'inbox-arrow-down' : 'inbox'}
             size={24}
@@ -98,11 +100,12 @@ const routes = {
       tabBarLabel: 'Profile',
       tabBarIcon: ({ focused, tintColor }) => (
         <View style={s.styleTabs}>
-          <MaterialCommunityIcons
+          <Icon iconName={focused ? 'profile' : 'profile-outline'} />
+          {/* <MaterialCommunityIcons
             name={focused ? 'account' : 'account-outline'}
             size={24}
             color={tintColor}
-          />
+          /> */}
         </View>
       ),
     }),
@@ -112,6 +115,7 @@ const routes = {
 const AppNavigator = createBottomTabNavigator(routes, {
   tabBarOptions: {
     activeTintColor: '#2E4052',
+    // inactiveTintColor: '#34495E',
     style: {
       position: 'absolute',
       bottom: 0,
