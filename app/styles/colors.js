@@ -9,4 +9,5 @@ export default {
   //   background: 'rgba(80,80,80,1)',
   //   primary: '#fc7753',
   icon: '#ffffff',
+  tabIconColor: '#34495E',
 };

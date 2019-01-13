@@ -10,6 +10,25 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
 
+  boldText: {
+    fontWeight: 'bold',
+  },
+
+  containerLabelText: {
+    // flex: 1,
+    backgroundColor: 'white',
+    // flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // alignItems: ,
+    // fontFamily: 'roboto',
+    // fontWeight: 'normal',
+  },
+
+  styleLabelText: {
+    fontSize: 12,
+  },
+
   styleTabs: {
     // flex: 1,
     backgroundColor: colors.white,
@@ -17,8 +36,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     top: 0,
-    // bottom: 0,
-    height: 70,
+    bottom: 0,
+    // paddingTop: 4,
+    alignItems: 'center',
+    // height: 70,
     left: 0,
     right: 0,
   },

@@ -38,4 +38,5 @@
     "remote-redux-devtools": "^0.5.13"
   },
   "private": true
+
 }

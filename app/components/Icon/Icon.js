@@ -13,10 +13,12 @@ const Icon = ({
   size = 24,
   iconName,
   iconStyle,
+  color = colors.tabIconColor,
 }) => (
   <IconSet
     name={iconName}
     style={[s.icon, size && { fontSize: size }, iconStyle]}
+    color={color}
   />
 );
 

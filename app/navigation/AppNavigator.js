@@ -1,14 +1,6 @@
 import React from 'react';
-import {
-  createBottomTabNavigator,
-  navigation,
-} from 'react-navigation';
-import { View } from 'react-native';
-import {
-  MaterialCommunityIcons,
-  Ionicons,
-  EvilIcons,
-} from '@expo/vector-icons';
+import { createBottomTabNavigator } from 'react-navigation';
+import { View, Text } from 'react-native';
 import { Svg } from 'expo';
 
 import screens from './screens';
@@ -25,14 +17,22 @@ const routes = {
   [screens.BrowseTab]: {
     screen: BrowseNavigator,
     navigationOptions: () => ({
-      tabBarLabel: 'Browse',
-      tabBarIcon: ({ focused, tintColor }) => (
+      tabBarLabel: ({ focused, tintColor }) => (
+        <View style={s.containerLabelText}>
+          <Text
+            style={[
+              { color: tintColor },
+              s.styleLabelText,
+              focused && s.boldText,
+            ]}
+          >
+            Browse
+          </Text>
+        </View>
+      ),
+      tabBarIcon: ({ focused }) => (
         <View style={s.styleTabs}>
-          <Ionicons
-            name={focused ? 'md-search' : 'ios-search'}
-            size={24}
-            color={tintColor}
-          />
+          <Icon iconName={focused ? 'search' : 'search-outline'} />
         </View>
       ),
     }),
@@ -41,14 +41,22 @@ const routes = {
   [screens.FavoritesTab]: {
     screen: FavoritesNavigator,
     navigationOptions: () => ({
-      tabBarLabel: 'Saved',
-      tabBarIcon: ({ focused, tintColor }) => (
+      tabBarLabel: ({ focused, tintColor }) => (
+        <View style={s.containerLabelText}>
+          <Text
+            style={[
+              { color: tintColor },
+              s.styleLabelText,
+              focused && s.boldText,
+            ]}
+          >
+            Saved
+          </Text>
+        </View>
+      ),
+      tabBarIcon: ({ focused }) => (
         <View style={s.styleTabs}>
-          <MaterialCommunityIcons
-            name={focused ? 'bookmark' : 'bookmark-outline'}
-            size={24}
-            color={tintColor}
-          />
+          <Icon iconName={focused ? 'saved' : 'saved-outline'} />
         </View>
       ),
     }),
@@ -68,7 +76,7 @@ const routes = {
             />
           </Svg>
           <View style={s.button}>
-            <EvilIcons name="camera" size={39} color={colors.white} />
+            <Icon iconName="camera" color="white" />
           </View>
         </View>
       ),
@@ -80,15 +88,23 @@ const routes = {
   [screens.InboxTab]: {
     screen: InboxNavigator,
     navigationOptions: () => ({
-      tabBarLabel: 'Inbox',
-      tabBarIcon: ({ focused, tintColor }) => (
+      tabBarLabel: ({ focused, tintColor }) => (
+        <View style={s.containerLabelText}>
+          <Text
+            style={[
+              { color: tintColor },
+              s.styleLabelText,
+              focused && s.boldText,
+            ]}
+          >
+            Inbox
+          </Text>
+        </View>
+      ),
+      // tabBarLabel: 'Inbox',
+      tabBarIcon: ({ focused }) => (
         <View style={s.styleTabs}>
-          {/* <Icon iconName="inbox"  /> */}
-          <MaterialCommunityIcons
-            name={focused ? 'inbox-arrow-down' : 'inbox'}
-            size={24}
-            color={tintColor}
-          />
+          <Icon iconName={focused ? 'inbox' : 'inbox-outline'} />
         </View>
       ),
     }),
@@ -97,15 +113,22 @@ const routes = {
   [screens.ProfileTab]: {
     screen: ProfileNavigator,
     navigationOptions: () => ({
-      tabBarLabel: 'Profile',
-      tabBarIcon: ({ focused, tintColor }) => (
+      tabBarLabel: ({ focused, tintColor }) => (
+        <View style={s.containerLabelText}>
+          <Text
+            style={[
+              { color: tintColor },
+              s.styleLabelText,
+              focused && s.boldText,
+            ]}
+          >
+            Profile
+          </Text>
+        </View>
+      ),
+      tabBarIcon: ({ focused }) => (
         <View style={s.styleTabs}>
           <Icon iconName={focused ? 'profile' : 'profile-outline'} />
-          {/* <MaterialCommunityIcons
-            name={focused ? 'account' : 'account-outline'}
-            size={24}
-            color={tintColor}
-          /> */}
         </View>
       ),
     }),
@@ -115,7 +138,15 @@ const routes = {
 const AppNavigator = createBottomTabNavigator(routes, {
   tabBarOptions: {
     activeTintColor: '#2E4052',
-    // inactiveTintColor: '#34495E',
+    inactiveTintColor: '#34495E',
+    labelStyle: {
+      backgroundColor: 'white',
+      // color: 'red',
+    },
+    activeLabelStyle: {
+      fontWeight: 'bold',
+      // fontWeight: 'bold',
+    },
     style: {
       position: 'absolute',
       bottom: 0,

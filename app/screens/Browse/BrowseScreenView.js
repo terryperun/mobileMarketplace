@@ -13,11 +13,12 @@ const BrowseScreenView = () => (
     <Icon iconName="search-outline" />
 
     <Text>saved</Text>
-    <Icon iconName="saved" />
+    <Icon iconName="saved" color="red" />
     <Text>saved-outline</Text>
+    <Icon iconName="saved-outline" />
 
     <Text>Camera</Text>
-    <Icon iconName="Camera" />
+    <Icon iconName="camera" />
 
     <Text>inbox</Text>
     <Icon iconName="inbox" />
