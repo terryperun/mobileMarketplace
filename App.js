@@ -2,12 +2,7 @@ import React from 'react';
 import { SplashScreen } from 'expo';
 import { Provider } from 'react-redux';
 
-import {
-  compose,
-  lifecycle,
-  withState,
-  withHandlers,
-} from 'recompose';
+import { compose, lifecycle, withState } from 'recompose';
 
 import RootNavigator from './app/navigation/RootNavigator';
 import store from './app/store';
