@@ -42,7 +42,11 @@ BrowseScreenView.navigationOptions = {
       <SearchInput style={s.headerSearch} />
     </View>
   ),
-  // headerStyle: { height: 80 },
+  headerRight: (
+    <View style={s.rightIcon}>
+      <Icon iconName="inbox" />
+    </View>
+  ),
 };
 
 export default BrowseScreenView;
