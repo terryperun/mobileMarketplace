@@ -1,40 +1,40 @@
 import React from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text, StatusBar, FlatList } from 'react-native';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import Icon from '../../components/Icon/Icon';
+import ProductItem from '../../components/ProductItem/ProductItemView';
 
 import s from './styles';
+import { data } from '../../mocks/Browse';
 
 const BrowseScreenView = () => (
-  <View>
+  <View style={s.container}>
     <StatusBar barStyle="dark-content" />
-    <View>
-      <Text>search</Text>
-      <Icon iconName="search" />
-      <Text>search-outline</Text>
-      <Icon iconName="search-outline" />
-
-      <Text>saved</Text>
-      <Icon iconName="saved" color="red" />
-      <Text>saved-outline</Text>
-      <Icon iconName="saved-outline" />
-
-      <Text>Camera</Text>
-      <Icon iconName="camera" />
-
-      <Text>inbox</Text>
-      <Icon iconName="inbox" />
-      <Text>inbox-outline</Text>
-      <Icon iconName="inbox-outline" />
-
-      <Text>profile</Text>
-      <Icon iconName="profile" />
-      <Text>profile-outline</Text>
-      <Icon iconName="profile-outline" />
-    </View>
+    <FlatList
+      data={data}
+      keyExtractor={(item) => item.key}
+      numColumns={2}
+      // columnWrapperStyle={s.columStyle}
+      contentContainerStyle={s.contentContainer}
+      renderItem={({ item }) => (
+        <View
+          // style={[
+          //   index % 2 == 0
+          //     ? { marginRight: 5 }
+          //     : { marginLeft: 5, marginRght: 0 },
+          // ]}
+          style={s.flatList}
+        >
+          <ProductItem
+            image={item.image}
+            title={item.title}
+            price={item.price}
+          />
+        </View>
+      )}
+    />
   </View>
 );
-
 BrowseScreenView.navigationOptions = {
   title: 'Browse',
   headerTitle: () => (
